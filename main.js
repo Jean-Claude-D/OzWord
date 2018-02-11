@@ -43,21 +43,47 @@ var word = {
   },
 
   displayResults: function(words) {
-    var results = words.map(function (v) {
-      return v.w
+    var resultAdjectives = words.map(function (v) {
+      return v.t === 'adjective'
     })
-    var resultstype = words.map(function (v)){
-      return v.t
+    var resultAdverbs = words.map(function (v) {
+      return v.t === 'adverb'
     })
-    var resultsyllables = words.map(function (v)){
-      return v.s
+    var resultNouns = words.map(function (v) {
+      return v.t === 'noun'
     })
-    
-    var table = document.getElementById('resultsTable');
-    words.map(function(results,resultstype,resultsyllables){
-      var row = table.insertRow(1);
+    var resultVerbs = words.map(function (v) {
+      return v.t === 'verb'
+    })
 
-    })
+    var table = document.getElementById('resultsTable');
+
+    // Clear table
+    table.children[0].innerHTML = ''
+    var header = table.insertRow();
+
+    var wordText = document.createElement('th')
+    wordText.textContent = 'Word'
+    header.appendChild(wordText)
+
+    var wordType = document.createElement('th')
+    wordType.textContent = 'Word'
+    header.appendChild(wordType)
+
+    for (var i = 0; i < words.length; i++) {
+      if (i > 200) break
+
+      var row = table.insertRow();
+      var wordText = document.createElement('td')
+      wordText.textContent = words[i].w
+      row.appendChild(wordText)
+
+      var wordType = document.createElement('td')
+      wordType.textContent = words[i].t
+      row.appendChild(document.createTextNode(words[i].t))
+    }
+
+
     document.getElementById('results').textContent = results.join(', ')
   },
 
