@@ -1,31 +1,31 @@
-h1{
+h1 {
   font-family: fantasy;
   font-style: italic;
   font-size: 60px;
   text-align: center;
 }
 
-body{
+body {
   background-color: #e4e4e7;
-    text-align: center;
+  text-align: center;
 }
 
-u{
-  text-decoration:none;
+u {
+  text-decoration: none;
   border-bottom: 5px solid;
 }
 
-.searchbar{
+#searchbar {
   width: 500px;
   height: 50px;
   font-size: 30px;
 }
 
-.subhead{
-left: 100px;
+.subhead {
+  left: 100px;
 }
 
-.mainBox{
+.mainBox {
   border: 1px solid black;
   padding-bottom: 20px;
   padding-left: -50px;

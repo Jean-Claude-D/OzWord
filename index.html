@@ -1,0 +1,44 @@
+<!DOCTYPE html >
+<html lang="en">
+
+<head>
+  <meta content="text/html; charset=utf-8" charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Oz</title>
+  <link rel="stylesheet" href="main.css">
+  <script src="filters.js"></script>
+  <script src="main.js"></script>
+</head>
+
+<body>
+  <div class="mainBox">
+    <h1>
+      <u>Welcome to Oz</u>
+    </h1>
+    <section id="info">
+      <p>Hello my name is Oz, I'm your personal English Assistant.
+        <br> You can ask me any basic english questions for example:
+        <br>
+        <br>Oz what is a word that has 2 sylables and starts with the letter 'a'
+        <br>or
+        <br> Oz what is a synonym for beautiful but starts with 'g'
+      </p>
+    </section>
+    <section>
+      <input id="searchbar" type="text" name="search" autofocus="true" onchange="word.inputChange()" placeholder="Oz what is..." />
+    </section>
+  </div>
+
+  <section>
+    <div>
+      <p id="subhead">So here's what I found:</p>
+    </div>
+    <div>
+      <p id="results"></p>
+    </div>
+  </section>
+  <footer>
+  </footer>
+</body>
+
+</html>
