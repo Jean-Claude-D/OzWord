@@ -6,11 +6,16 @@ var wordCond = {};
 wordCond.n = {name: "noun", func: function (toCheck) {
 	return toCheck.type === "noun";
 }};
-wordCond.notN = {name: "noun", func: function (toCheck) {
+wordCond.notN = {name: parsedRequest.not + wordCond.n,
+func: function (toCheck) {
 	return toCheck.type === "noun";
 }};
 wordCond.v = {name: "verb", func: function (toCheck) {
 	return toCheck.type === "verb";
+}};
+wordCond.notV = {name: parsedRequest.not + wordCond.v,
+func: function (toCheck) {
+	return toCheck.type === "noun";
 }};
 wordCond.adv = {name: "adverb", func: function (toCheck) {
 	return toCheck.type === "adverb";
