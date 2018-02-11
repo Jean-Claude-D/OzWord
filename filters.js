@@ -32,7 +32,7 @@ var filters = [
 
   // Inverse of the above, checks if a word ends with the provided string
   {
-    regex: /ends?(?: with)?\s+(?:['"](.*)['"]|(\w+))/,
+    regex: /ends?(?: with)?\s+(?:['"](.*)['"]|(.+))/,
 
     filter: function (str, args, words) {
       var end = args[1] ? args[1].toLowerCase() : args[2].toLowerCase()
