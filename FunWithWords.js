@@ -1,34 +1,22 @@
 "use strict"
 var negateList = ["no", "not", "isn't", "aren't", "haven't", "without"];
 
-var userInput = "A word that is not a verb, but is an adjective or noun";
+var userInput = "A word that is not a verb, but is an adjective or noun, have 5 characters and 2 syllables";
 
 window.onload = main;
 
 function main () {
 
-  console.log("aaaaaaaaaaaaaaaa");
-
-
-
   var splitUser = userInput.split(' ');
 
-  console.log(splitUser);
+  var checking = checkType(splitUser);
 
-
-  var checking = "{" + checkType(splitUser) + "}";
-
-  console.log(checking);
-
-  console.log("b");
+  checking = checkWordLength(splitUser);
 }
-
-
 
 function checkType(userInputArray) {
 
   var sumCondition = '';
-
   for (var i = 0; i < userInputArray.length; i++) {
 
     if (userInputArray[i].toLowerCase() === "noun") {
@@ -85,4 +73,24 @@ function isNegate(word) {
     }
   }
   return false;
+}
+
+function checkWordLength (userInputArray) {
+
+  var sumCondition = '';
+
+  for (var i = 0; i < userInputArray.length; i++) {
+
+    if (userInputArray[i] === "characters" || userInputArray[i] === "letters"
+        || userInputArray[i] === "character" || userInputArray[i] === "character") {
+
+        sumCondition += ' ' + userInputArray[i - 1] + 'C';
+    }
+
+    if (userInputArray[i] === "syllable" || userInputArray === "syllables") {
+
+        sumCondition += ' ' + userInputArray[i - 1] + 'S';
+    }
+  }
+  return sumCondition;
 }
