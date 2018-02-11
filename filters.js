@@ -11,7 +11,7 @@
 var filters = [
   {
     /** The regex to use to match */
-    regex: /(?:starts|begins)?(?: with)?\s+(?:['"](.*)['"]|(\w+))/,
+    regex: /(?:starts?|begins?)(?: with)?\s+(?:['"](.*)['"]|(\w+))/,
 
     /**
      * Filter the current list of words
@@ -43,5 +43,46 @@ var filters = [
         return w.substring(w.length - end.length, w.length) === end
       })
     }
+  },
+  
+  // Checks for word length
+  {
+	  regex: /(\d+) (?:[cC]haracters?|[lL]etters?)/,
+	  
+	  filter: function (str, args, words) {
+		  return words.filter(function (v) {
+			  return v.w.length === +args[1];
+		  })
+	  }
+  },
+  
+  // Checks for syllabe count
+  {
+	  regex: /(\d+) (?:[sS]yllables?)/,
+	  
+	  //tree
+	  
+	  filter: function (str, args, words) {
+		  console.log('a')
+		  return words.filter(function (v) {
+			  var currChars = v.w.split('');
+			  var vowels = ["a", "e", "i", "o", "u", "y"];
+			  var syllableCount = 0;
+			  
+			  for(var i = 0; i < currChars.length; i++) {
+				  for(var j = 0; j < vowels.length; j++) {
+					  if(currChars[i].toLowerCase() === vowels[j].toLowerCase()) {
+						  syllableCount++;
+						  
+						  //skip identical chars
+						  for(; i < currChars.length - 1 &&
+						  currChars[i].toLowerCase() === currChars[i + 1].toLowerCase(); i++);
+					  }
+				  }
+			  }
+			  
+			  return syllableCount === +args[1];
+		  })
+	  }
   }
 ]
