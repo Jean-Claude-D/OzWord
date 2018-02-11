@@ -46,10 +46,12 @@ var filters = [
   
   // Checks for word length
   {
-	  regex: / * /,
+	  regex: /(\d+) (?:[cC]haracters?|[lL]etters?)/,
 	  
-	  filter: function(str, args, words) {
-		  return true;
+	  filter: function (str, args, words) {
+		  return words.filter(function (v) {
+			  return v.w.length === args[1];
+		  })
 	  }
   },
   
