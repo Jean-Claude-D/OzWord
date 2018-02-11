@@ -1,0 +1,33 @@
+h1{
+  font-family: fantasy;
+  font-style: italic;
+  font-size: 60px;
+  text-align: center;
+}
+
+body{
+  background-color: #e4e4e7;
+    text-align: center;
+}
+
+u{
+  text-decoration:none;
+  border-bottom: 5px solid;
+}
+
+.searchbar{
+  width: 500px;
+  height: 50px;
+  font-size: 30px;
+}
+
+.subhead{
+left: 100px;
+}
+
+.mainBox{
+  border: 1px solid black;
+  padding-bottom: 20px;
+  padding-left: -50px;
+  padding-right: -50px;
+}
