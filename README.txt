@@ -1,1 +1,1 @@
-This is a PL/SQL plugin for the atom editor coded in JavaScript, because, let's face it SQL Developer is terrible.
+This is Oz he's an English assistant what you need in english he will help you with.
