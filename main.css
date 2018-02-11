@@ -6,7 +6,7 @@ h1 {
 }
 
 body {
-  background-color: #e4e4e7;
+  background-color: #80ff80;
   text-align: center;
 }
 
@@ -16,18 +16,18 @@ u {
 }
 
 #searchbar {
-  width: 500px;
-  height: 50px;
-  font-size: 30px;
-}
-
-.subhead {
-  left: 100px;
+  width: 90%;
+  height: 30%;
+  font-size: 200%;
 }
 
 .mainBox {
+  background-color: #f2f2f2;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+  border-radius: 8px;
   border: 1px solid black;
-  padding-bottom: 20px;
-  padding-left: -50px;
-  padding-right: -50px;
+  margin-top: 3%;
+  margin-left: 15%;
+  margin-right: 15%;
+  padding-bottom: 3%;
 }

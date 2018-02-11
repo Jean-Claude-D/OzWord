@@ -37,6 +37,7 @@ var filters = [
     filter: function (str, args, words) {
       var end = args[1] ? args[1].toLowerCase() : args[2].toLowerCase()
 
+      console.log(end)
       return words.filter(function (v) {
         var w = v.w
         return w.substring(w.length - end.length, w.length) === end
