@@ -8,8 +8,7 @@
  * @property {Number} s The number of syllables in the word
  */
 
-var filters = [
-  {
+var filters = [{
     /** The regex to use to match */
     regex: /(?:starts?|begins?)(?: with)?\s+(?:['"](.*)['"]|(\S+))/,
 
@@ -21,10 +20,10 @@ var filters = [
      * @param {Word[]} words The current list of words, may be already filtered by other filters
      * @returns {Word[]} A new array of words that match
      */
-    filter: function(str, args, words) {
+    filter: function (str, args, words) {
       var start = (args[1] ? args[1].toLowerCase() : args[2].toLowerCase()).trim()
 
-      return words.filter(function(v) {
+      return words.filter(function (v) {
         return v.w.indexOf(start) === 0
       })
     }
@@ -42,5 +41,64 @@ var filters = [
         return w.substring(w.length - end.length, w.length) === end
       })
     }
-  }
+  },
+
+  // Check for the type of the words
+  {
+    regex: /(nouns?|verbs?|adjectives?|adverbs?)/,
+
+    filter: function (str, args, words) {
+      var condition = typeCheck.main(str);
+
+      if (condition.includes("!noun")) {
+        words = words.filter(function (v) {
+          return v.t !== "noun";
+        })
+      }
+
+      if (condition.includes("!adjective")) {
+        words = words.filter(function (v) {
+          return v.t !== "adjective";
+        })
+      }
+
+      if (condition.includes("!adverb")) {
+        words = words.filter(function (v) {
+          return v.t !== "adverb";
+        })
+      }
+
+      if (condition.includes("!verb")) {
+        words = words.filter(function (v) {
+          return v.t !== "verb";
+        })
+      }
+
+      if (condition.includes(" adjective")) {
+        words = words.filter(function (v) {
+          return v.t === "adjective";
+        })
+      }
+
+      if (condition.includes(" adverb")) {
+        words = words.filter(function (v) {
+          return v.t === "adverb";
+        })
+      }
+
+      if (condition.includes(" noun")) {
+        words = words.filter(function (v) {
+          return v.t === "noun";
+        })
+      }
+
+      if (condition.includes(" verb")) {
+        words = words.filter(function (v) {
+          return v.t === "verb";
+        })
+      }
+
+      return words
+    }
+  },
 ]
