@@ -4,7 +4,10 @@
 var word = {
   words: null,
 
-  inputChange: function() {
+  inputChange: function(event) {
+    if (event.key !== 'Enter')
+      return
+
     if (word.words === null)
       return
 
@@ -27,11 +30,11 @@ var word = {
   },
 
   init: function() {
-    word.getJSONFile('words-example.json', function(err, json) {
+    word.getJSONFile('words.json', function(err, json) {
       if (err)
         return console.error(err)
 
-      word.words = json.words
+      word.words = json.w
 
       word.displayResults(word.words)
     })
@@ -41,10 +44,10 @@ var word = {
 
   displayResults: function(words) {
     var results = words.map(function (v) {
-      return v.word
+      return v.w
     })
 
-    document.getElementById('results').textContent = results
+    document.getElementById('results').textContent = results.join(', ')
   },
 
   getJSONFile: function(file, callback) {

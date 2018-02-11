@@ -3,9 +3,9 @@
 
 /**
  * @typedef {Object} Word
- * @property {String} word The word itself
- * @property {String} type The type of the word
- * @property {Number} syllables The number of syllables in the word
+ * @property {String} w The word itself
+ * @property {String} t The type of the word
+ * @property {Number} s The number of syllables in the word
  */
 
 var filters = [
@@ -25,7 +25,7 @@ var filters = [
       var start = args[1] ? args[1].toLowerCase() : args[2].toLowerCase()
 
       return words.filter(function(v) {
-        return v.word.indexOf(start) === 0
+        return v.w.indexOf(start) === 0
       })
     }
   },
@@ -38,7 +38,7 @@ var filters = [
       var end = args[1] ? args[1].toLowerCase() : args[2].toLowerCase()
 
       return words.filter(function (v) {
-        var w = v.word
+        var w = v.w
         return w.substring(w.length - end.length, w.length) === end
       })
     }
