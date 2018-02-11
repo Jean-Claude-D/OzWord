@@ -36,3 +36,8 @@ u {
   margin-right: 15%;
   padding-bottom: 3%;
 }
+
+table{
+  margin: 0 auto;
+  border: 1px solid #dddddd;
+}
