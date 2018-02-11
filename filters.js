@@ -60,10 +60,7 @@ var filters = [
   {
 	  regex: /(\d+) (?:[sS]yllables?)/,
 	  
-	  //tree
-	  
 	  filter: function (str, args, words) {
-		  console.log('a')
 		  return words.filter(function (v) {
 			  var currChars = v.w.split('');
 			  var vowels = ["a", "e", "i", "o", "u", "y"];
@@ -71,7 +68,7 @@ var filters = [
 			  
 			  for(var i = 0; i < currChars.length; i++) {
 				  for(var j = 0; j < vowels.length; j++) {
-					  if(currChars[i].toLowerCase() === vowels[j].toLowerCase()) {
+					  if(currChars[i].toLowerCase() === vowels[j].toLowerCase() && !(i == currChars.length - 1 && currChars[i] == 'e')) {
 						  syllableCount++;
 						  
 						  //skip identical chars
@@ -82,7 +79,7 @@ var filters = [
 			  }
 			  
 			  return syllableCount === +args[1];
-		  })
+		  }) // 
 	  }
   }
 ]
