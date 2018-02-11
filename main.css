@@ -6,8 +6,13 @@ h1 {
 }
 
 body {
-  background-color: #80ff80;
+  background-color: #1565C0;
   text-align: center;
+}
+
+body > section {
+  color: aliceblue;
+  font-family: sans-serif;
 }
 
 u {
