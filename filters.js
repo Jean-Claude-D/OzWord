@@ -11,7 +11,7 @@
 var filters = [
   {
     /** The regex to use to match */
-    regex: /(?:starts?|begins?)(?: with)?\s+(?:['"](.*)['"]|(.+))/,
+    regex: /(?:starts?|begins?)(?: with)?\s+(?:['"](.*)['"]|(\S+))/,
 
     /**
      * Filter the current list of words
@@ -22,7 +22,7 @@ var filters = [
      * @returns {Word[]} A new array of words that match
      */
     filter: function(str, args, words) {
-      var start = args[1] ? args[1].toLowerCase() : args[2].toLowerCase()
+      var start = (args[1] ? args[1].toLowerCase() : args[2].toLowerCase()).trim()
 
       return words.filter(function(v) {
         return v.w.indexOf(start) === 0
@@ -32,12 +32,11 @@ var filters = [
 
   // Inverse of the above, checks if a word ends with the provided string
   {
-    regex: /ends?(?: with)?\s+(?:['"](.*)['"]|(.+))/,
+    regex: /ends?(?: with)?\s+(?:['"](.*)['"]|(\S+))/,
 
     filter: function (str, args, words) {
-      var end = args[1] ? args[1].toLowerCase() : args[2].toLowerCase()
+      var end = (args[1] ? args[1].toLowerCase() : args[2].toLowerCase()).trim()
 
-      console.log(end)
       return words.filter(function (v) {
         var w = v.w
         return w.substring(w.length - end.length, w.length) === end
