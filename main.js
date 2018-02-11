@@ -46,7 +46,18 @@ var word = {
     var results = words.map(function (v) {
       return v.w
     })
+    var resultstype = words.map(function (v)){
+      return v.t
+    })
+    var resultsyllables = words.map(function (v)){
+      return v.s
+    })
+    
+    var table = document.getElementById('resultsTable');
+    words.map(function(results,resultstype,resultsyllables){
+      var row = table.insertRow(1);
 
+    })
     document.getElementById('results').textContent = results.join(', ')
   },
 
