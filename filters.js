@@ -11,7 +11,7 @@
 var filters = [
   {
     /** The regex to use to match */
-    regex: /starts?(?: with)?\s+(?:['"](.*)['"]|(\w+))/,
+    regex: /(?:starts|begins)?(?: with)?\s+(?:['"](.*)['"]|(\w+))/,
 
     /**
      * Filter the current list of words
