@@ -5,6 +5,7 @@ var word = {
   words: null,
 
   inputChange: function(event) {
+    if (!event) return
     if (event.key !== 'Enter')
       return
 
