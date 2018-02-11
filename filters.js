@@ -42,5 +42,41 @@ var filters = [
         return w.substring(w.length - end.length, w.length) === end
       })
     }
+  },
+  
+  // Checks for word length
+  {
+	  regex: / * /,
+	  
+	  filter: function(str, args, words) {
+		  return true;
+	  }
+  },
+  
+  // Checks for syllable counts
+  {
+	  regex: / * /,
+	  
+	  filter: function(str, args, words) {
+		  return true;
+	  }
+  },
+  
+  // Checks for palindrome
+  {
+	  regex: / * /,
+	  
+	  filter: function(str, args, words) {
+		  return true;
+	  }
+  },
+  
+  // Checks for anagrams
+  {
+	  regex: / * /,
+	  
+	  filter: function(str, args, words) {
+		  return true;
+	  }
   }
 ]
